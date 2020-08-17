@@ -26,6 +26,7 @@ app.get('/', (req, res) =>
     console.log("OK")
 		res.json('database')
 	});
+app.get('/', (req, res) =>res.json('database'))
 app.post('/signin', (req, res) =>signin.handle(req, res,bcrypt,database));
 app.post("/register",(req,res) =>register.handle(req, res,bcrypt,database));
 app.get('/profile/:id',(req, res)=>profile.handle(req, res,database));
