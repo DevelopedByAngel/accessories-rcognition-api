@@ -1,6 +1,7 @@
 const handle=(req,res,bcrypt,database) =>
 {
 		const {name,email,password} = req.body;
+		console.log(name,email,password)
 		if (!name || !email || !password)
 		{
 			res.status(400).json('wrong credentials')
