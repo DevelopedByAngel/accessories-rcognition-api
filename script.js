@@ -13,7 +13,9 @@ const database = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,//'postgresql-defined-04663', process.env ... will take automatcalyy
-    ssl:true
+    ssl: {
+    rejectUnauthorized: false
+  }
   }
 })
 
