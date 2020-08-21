@@ -13,9 +13,7 @@ const database = knex({
   client: 'pg',
   connection: {
     host     : 'postgresql-defined-04663',
-    user     : 'postgres',
-    password : 'angel@111@heroku',
-    database : 'smartstar',
+    ssl:true
   }
 })
 
