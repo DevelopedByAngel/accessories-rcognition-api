@@ -12,7 +12,7 @@ const image= require('./controllers/image.js')
 const database = knex({
   client: 'pg',
   connection: {
-    host     : 'postgresql-defined-04663',
+    connectionString: process.env.DATABASE_URL,//'postgresql-defined-04663', process.env ... will take automatcalyy
     ssl:true
   }
 })
