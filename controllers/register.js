@@ -4,10 +4,12 @@ const handle=(req,res,bcrypt,database) =>
 		console.log(name,email,password)
 		if (!name || !email || !password)
 		{
+			console.log('wrong');
 			res.status(400).json('wrong credentials')
 		}
 		else{
 		const hash=bcrypt.hashSync(password);//getting hashed password
+		console.log(hash);
 		database.transaction(trx=>//intializing transaction
 		{
 			trx.insert({ //inserting via transaction
@@ -34,7 +36,7 @@ const handle=(req,res,bcrypt,database) =>
 			.then(trx.commit)//if no error then commit changes to original
 			.catch(trx.rollback)//if error occured then undo operation
 		})
-		.catch(err=>res.status(400).json('unable to register'))
+		.catch(err=>{console.log(err);res.status(400).json('unable to register')})
 
 	}
 }
